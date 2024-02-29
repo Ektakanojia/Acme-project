@@ -1,0 +1,32 @@
+<p>product-details works!</p>
+<div class="welcome">
+    <div class="header">
+        <h4>Product Detail : {{productName}}</h4>
+    </div>
+    <div class="main">
+        <div class="main-first">
+            <div class="main-first-head">
+                <p>Name :</p>
+                <p>Code :</p>
+                <p>Description :</p>
+                <p>Availability :</p>
+                <p>Price :</p>
+                <p>5 Star Rating : </p>
+            </div>
+            <div class="main-first-data">
+                <p>{{productName}}</p> 
+                <p>{{productCode}}</p>
+                <p>{{description}}</p>
+                <p>{{releaseDate}}</p>
+                <p>${{price}}</p>
+                <p><app-star [rating]="starRating"></app-star></p>
+            </div>
+        </div>
+        <div class="main-second">
+            <img src="{{imageUrl}}" alt="">
+        </div>
+    </div>
+    <div class="footer">
+        <a routerLink="/product-list"><button><b> &#60; Back</b></button></a>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<p>product-list works!</p>
+<div class="container" style="border: 1px solid #19A7CE;color: white;background-color: #19A7CE;">
+    <h1>ProductList</h1>
+</div>
+<div class="container-md" >
+   <div style="margin-top: 20px;">
+    <span>Filter By :</span><input type="text" 
+    class="form-control" 
+    placeholder="search products"  id="search" 
+    [(ngModel)]="filterSearch" 
+    (ngModelChange)="updateProductList($event)"/>
+   </div>
+
+
+   <table class="table ">
+    <thead>
+        <tr>
+        <th scope="col" (click)="toggleImage()"><button>{{buttonName}}</button>
+          </th>
+          <th scope="col">Product</th>
+          <th scope="col">Code</th>
+          <th scope="col">releaseDate</th>
+          <th scope="col">Available</th>
+          <th scope="col">Price</th>
+          <th scope="col">5 star Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+         <tr *ngFor="let product of productList">
+           <!-- <th scope="row">{{i}}</th>  -->
+          <td >
+            <img  *ngIf="!show;" [src]="product.imageUrl" style="height: 50px;width: 60px;"/>
+          </td>
+          <td><a routerLink="/Product Details/{{product.productCode}}">{{product.productName}}</a></td>
+          <td>{{product.productCode}}</td>
+          <td>{{product.releaseDate}}</td>
+          <td>{{product.description}}</td>
+          <td>{{product.price}}</td>
+          <td>
+          <app-star [rating]="product.starRating"></app-star>
+          </td>
+         </tr> 
+       
+      </tbody>
+  </table>  
+
+</div>
+
+    
